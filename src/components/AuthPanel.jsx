@@ -23,18 +23,6 @@ export default function AuthPanel() {
     await signOut(auth);
   };
 
-  const buttonStyle = {
-    padding: "0.8rem 1.2rem",
-    borderRadius: "14px",
-    border: "none",
-    background: "#8b5cf6",
-    color: "white",
-    fontWeight: 600,
-    cursor: "pointer",
-    boxShadow: "0 6px 18px rgba(139, 92, 246, 0.25)",
-    transition: "all 0.25s ease",
-  };
-
   return (
     <div
       style={{
@@ -58,7 +46,9 @@ export default function AuthPanel() {
             />
             <span style={{ fontSize: "0.9rem" }}>{user.displayName}</span>
           </div>
-
+          <button disabled={loading}>
+            {loading ? "Signing in..." : "Sign in with Google"}
+          </button>
           <button
             onClick={logout}
             style={{
