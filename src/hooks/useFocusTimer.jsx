@@ -132,9 +132,11 @@ export default function useFocusTimer() {
   }, [mode, sessionTime, sessionDistractions]);
 
   useEffect(() => {
+    console.log("Timer effect:", isRunning);
     if (!isRunning) return;
 
     const timer = setInterval(() => {
+      console.log("tick");
       setTimeLeft((prev) => prev - 1);
     }, 1000);
 
@@ -182,6 +184,7 @@ export default function useFocusTimer() {
   ]);
 
   const startTimer = () => {
+    console.log("START CLICKED");
     if (mode === "focus") {
       setSessionDistractions(0);
     }

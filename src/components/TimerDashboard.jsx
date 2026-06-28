@@ -2,7 +2,7 @@ export default function TimerDashboard({
   timeLeft,
   totalTime,
   mode,
-  changeMode,
+  onModeChange,
 }) {
   const progress = (timeLeft / totalTime) * 100;
 
@@ -25,7 +25,7 @@ export default function TimerDashboard({
         {["focus", "break"].map((m) => (
           <button
             key={m}
-            onClick={() => changeMode(m)}
+            onClick={() => onModeChange(m)}
             style={{
               padding: "0.4rem 1rem",
               borderRadius: "20px",
